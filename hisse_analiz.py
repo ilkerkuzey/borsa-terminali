@@ -10,58 +10,46 @@ st.set_page_config(page_title="AI Teknik Analiz", layout="wide")
 
 st.markdown("""
     <style>
-    /* Üstteki beyaz bandı şeffaf yap ama ikonu (hamburger menü) gizleme */
-header[data-testid="stHeader"] {
-    background-color: rgba(0,0,0,0) !important;
-}
+    /* 1. Genel Sayfa ve Arka Plan Ayarları */
+    .stApp { background-color: #0b1e1a !important; }
+    [data-testid="stSidebar"] { background-color: #0d1a17 !important; }
+    
+    /* 2. Yazı Renklerini Parlat (Solukluğu Giderir) */
+    h1, h2, h3, p, span, div, label { color: #ffffff !important; }
+    [data-testid="stSidebar"] p, [data-testid="stSidebar"] span { color: #ffffff !important; }
 
-/* İkonun rengini beyaz yaparak görünür hale getir */
-button[kind="header"] {
-    color: white !important;
-}
+    /* 3. Üst Çubuğu Şeffaf Yap ve İkonlara Yer Aç */
+    header[data-testid="stHeader"] { 
+        background-color: rgba(0,0,0,0) !important; 
+        height: 3.5rem !important;
+    }
+    button[kind="header"] { color: #ffffff !important; }
+    
+    /* İçeriği ikonların altına indir (Çakışmayı önler) */
+    .block-container { 
+        padding-top: 4.5rem !important; 
+        padding-bottom: 1rem !important; 
+    }
 
-/* Sayfayı yukarı çek ama ikonun üzerine binmesini engelle */
-.block-container {
-    padding-top: 2rem !important;
-    padding-bottom: 0rem !important;
-}
-
-/* Sayfanın en üstündeki gereksiz boşluğu kaldır */
-.block-container {
-    padding-top: 0rem !important;
-    padding-bottom: 0rem !important;
-}
-
-/* Sayfa arka planını sabitle */
-.stApp {
-    background-color: #0b1e1a !important;
-}
-    /* Sayfanın tamamını karanlık yap */
-.stApp {
-    background-color: #0b1e1a !important;
-}
-/* Yan menüyü (sidebar) karanlık yap */
-[data-testid="stSidebar"] {
-    background-color: #0d1a17 !important;
-}
-/* Yazıları beyaz yap */
-h1, h2, h3, p, span, div {
-    color: white !important;
-}
-    .main { background-color: #0b1e1a; padding: 10px; }
+    /* 4. Analiz Kutuları ve Grid Düzeni */
     .indicator-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 15px; }
-    .metric-card { background-color: #162a26; border: 1px solid #1f3d37; border-radius: 12px; padding: 15px; color: white; }
-    .indicator-title { font-size: 11px; color: #88c0b0; margin-bottom: 2px; opacity: 0.8; text-align: left; }
+    .metric-card { background-color: #162a26; border: 1px solid #1f3d37; border-radius: 12px; padding: 15px; }
+    .indicator-title { font-size: 11px; color: #88c0b0 !important; margin-bottom: 2px; opacity: 0.8; text-align: left; }
     .indicator-value { font-size: 17px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+    
+    /* 5. Durum Kutucukları */
     .status-box { background-color: #0d1a17; border-radius: 4px; font-size: 10px; padding: 3px 8px; margin-top: 10px; color: #88c0b0; text-align: center; border: 1px solid #1f3d37; }
     .status-al { background-color: #00ff88; color: #000 !important; font-weight: bold; border: none; }
     .status-sat { background-color: #ff4b4b; color: white !important; font-weight: bold; border: none; }
+
+    /* 6. Sol Sinyal Paneli */
     .left-panel { background-color: #0d1a17; padding: 30px 20px; border-radius: 15px; text-align: center; border: 1px solid #1f3d37; height: 100%; }
     .price-text { font-size: 45px; font-weight: bold; color: white; margin: 15px 0; white-space: nowrap; }
     .sig-box { padding: 15px; border-radius: 10px; font-size: 20px; font-weight: bold; margin-top: 20px; }
     .sig-al { background-color: #00ff88; color: #00331a; }
     .sig-sat { background-color: #ff4b4b; color: white; }
     .sig-notr { background-color: #3d4d49; color: white; }
+
     </style>
     """, unsafe_allow_html=True)
 
