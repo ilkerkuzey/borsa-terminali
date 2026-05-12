@@ -60,7 +60,7 @@ def veri_getir(sembol):
     return df
 
 st.sidebar.header("🔍 Kontrol Paneli")
-izleme_listesi = st.sidebar.text_input("Hisseler:", "ASELS.IS, MIATK.IS, THYAO.IS, EREGL.IS")
+izleme_listesi = st.sidebar.text_input("Hisseler:", "BIMAS.IS, MIATK.IS, THYAO.IS, PGSUS.IS", KFEIN.IS", TEHOL.IS", MGROS.IS")
 secilen_hisse = st.sidebar.selectbox("Hisse Seç:", [h.strip() for h in izleme_listesi.split(",")])
 
 data = veri_getir(secilen_hisse)
