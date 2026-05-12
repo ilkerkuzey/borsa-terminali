@@ -49,7 +49,22 @@ st.markdown("""
     .sig-al { background-color: #00ff88; color: #00331a; }
     .sig-sat { background-color: #ff4b4b; color: white; }
     .sig-notr { background-color: #3d4d49; color: white; }
+ /* Mobil cihazlarda yazıların soluk görünmesini engelle (Zorunlu ayar) */
+    input, select, .stSelectbox div, div[data-baseweb="select"] {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important; /* iPhone/Safari için */
+    }
 
+    /* Telefonlarda kutuları 2'li sıraya dizerek üst üste binmeyi önle */
+    @media (max-width: 768px) {
+        .indicator-grid { 
+            grid-template-columns: repeat(2, 1fr) !important; 
+            gap: 8px !important;
+        }
+        .price-text { font-size: 32px !important; }
+        .left-panel { padding: 15px !important; }
+        .block-container { padding-top: 2rem !important; }
+    }
     </style>
     """, unsafe_allow_html=True)
 
