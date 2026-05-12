@@ -87,6 +87,31 @@ st.markdown("""
         color: white !important;
         -webkit-text-fill-color: white !important;
     }
+        /* MOBİL AÇILIR LİSTE (DROPDOWN) TAM KARARTMA */
+    /* 1. Açılan listenin ana kutusunu ve listesini hedefle */
+    div[data-baseweb="popover"], div[aria-expanded="true"] + div {
+        background-color: #0d1a17 !important;
+    }
+
+    /* 2. Listenin içindeki her bir elemanı (hisseleri) karart ve yazısını beyazlat */
+    li[data-baseweb="option"], li[role="option"] {
+        background-color: #0d1a17 !important;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+    }
+
+    /* 3. Mouse veya parmak üzerine geldiğindeki rengi belirle (Belli olsun diye biraz açıyoruz) */
+    li[data-baseweb="option"]:hover, li[role="option"]:focus {
+        background-color: #162a26 !important;
+        color: #00ff88 !important; /* Seçilen hisse yeşil yansın */
+    }
+
+    /* 4. Listenin dışındaki tüm beyaz boşlukları öldür */
+    div[data-baseweb="popover"] > div {
+        background-color: #0d1a17 !important;
+        border: 1px solid #1f3d37 !important;
+    }
+
     </style>
     """, unsafe_allow_html=True)
 
