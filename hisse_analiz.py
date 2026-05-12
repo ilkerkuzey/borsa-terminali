@@ -10,6 +10,18 @@ st.set_page_config(page_title="AI Teknik Analiz", layout="wide")
 
 st.markdown("""
     <style>
+    /* Sayfanın tamamını karanlık yap */
+.stApp {
+    background-color: #0b1e1a !important;
+}
+/* Yan menüyü (sidebar) karanlık yap */
+[data-testid="stSidebar"] {
+    background-color: #0d1a17 !important;
+}
+/* Yazıları beyaz yap */
+h1, h2, h3, p, span, div {
+    color: white !important;
+}
     .main { background-color: #0b1e1a; padding: 10px; }
     .indicator-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 15px; }
     .metric-card { background-color: #162a26; border: 1px solid #1f3d37; border-radius: 12px; padding: 15px; color: white; }
