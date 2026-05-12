@@ -169,8 +169,8 @@ if not data.empty:
 
     with col_left:
         st.markdown(f"""<div class="left-panel">
-            <h1 style='color:#00d1ff; font-size:32px;'>{secilen_hisse.split('.')[0]}</h1>
-            <div class="price-text">₺{son_fiyat:.2f}</div>
+            <h1 style='color:#00d1ff; font-size:32px; text-align:center; width:100%; margin: 10px 0;'>{secilen_hisse.split('.')[0]}</h1>
+    <div class="price-text" style="text-align:center;">₺{son_fiyat:.2f}</div>
             <div style='color: {"#00ff88" if degisim > 0 else "#ff4b4b"}; font-size: 18px;'>{"▲" if degisim > 0 else "▼"} %{degisim:.2f}</div>
             <div class="sig-box {sinyal_class}">{sinyal_text}</div>
             <p style='color:#4a6b63; margin-top:20px; font-size:10px;'>{datetime.now().strftime('%d %b %Y, %H:%M')}</p>
