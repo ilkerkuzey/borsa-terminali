@@ -27,7 +27,7 @@ st.markdown("""
     
     /* İçeriği ikonların altına indir (Çakışmayı önler) */
     .block-container { 
-        padding-top: 4.5rem !important; 
+        padding-top: 3rem !important; 
         padding-bottom: 1rem !important; 
     }
 
