@@ -10,6 +10,26 @@ st.set_page_config(page_title="AI Teknik Analiz", layout="wide")
 
 st.markdown("""
     <style>
+    * 1. Menüye tıklandığında aşağı açılan listenin (popover) arka planını karart */
+    div[data-baseweb="popover"], 
+    div[data-baseweb="popover"] *, 
+    ul[role="listbox"], 
+    li[role="option"] {
+        background-color: #0d1a17 !important;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+    }
+
+    /* 2. Liste üzerindeki seçili (hover) elemanın rengini belirle */
+    li[role="option"]:hover {
+        background-color: #162a26 !important;
+    }
+
+    /* 3. Menü kutusunun içindeki yazıyı mobilde tekrar garantiye al */
+    .stSelectbox div[data-baseweb="select"] {
+        background-color: #162a26 !important;
+        color: white !important;
+    }
     /* Genel Arka Plan */
     .stApp { background-color: #0b1e1a !important; }
     [data-testid="stSidebar"] { background-color: #0d1a17 !important; }
