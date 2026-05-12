@@ -82,15 +82,18 @@ if not data.empty:
     data['BBU'] = bbands.iloc[:, 2]
     data['MOM'] = ta.mom(data['Close'], length=10)
 
-    # Son Değerler
-    son_fiyat = float(data['Close'].values[-1])
-    rsi_val = float(data['RSI'].dropna().values[-1]) if not data['RSI'].dropna().empty else 50.0
-    sma_val = float(data['SMA_50'].dropna().values[-1]) if not data['SMA_50'].dropna().empty else son_fiyat
-    macd_val = float(data['MACD_VAL'].dropna().values[-1]) if not data['MACD_VAL'].dropna().empty else 0.0
-    stoch_val = float(data['STOCH_VAL'].dropna().values[-1]) if not data['STOCH_VAL'].dropna().empty else 50.0
-    mom_val = float(data['MOM'].dropna().values[-1]) if not data['MOM'].dropna().empty else 0.0
-    bbl_val = float(data['BBL'].dropna().values[-1]) if not data['BBL'].dropna().empty else son_fiyat
-    bbu_val = float(data['BBU'].dropna().values[-1]) if not data['BBU'].dropna().empty else son_fiyat
+        # Veriyi temizleyip son değerleri garantiye alıyoruz
+    data = data.ffill() # Eksik verileri bir önceki günle doldur
+    
+    # Değerleri güvenli bir şekilde sayıya çevir
+    son_fiyat = float(data['Close'].iloc[-1])
+    gecmis_fiyat = float(data['Close'].iloc[-2])
+    degisim = ((son_fiyat - gecmis_fiyat) / gecmis_fiyat) * 100
+    
+    # RSI ve diğerlerini çek
+    rsi_val = float(data['RSI'].iloc[-1])
+    sma_val = float(data['SMA_50'].iloc[-1])
+
 
     # Sinyal Mantığı
     sinyal_text, sinyal_class = "NÖTR", "sig-notr"
