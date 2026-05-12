@@ -10,9 +10,20 @@ st.set_page_config(page_title="AI Teknik Analiz", layout="wide")
 
 st.markdown("""
     <style>
-    /* Üstteki beyaz başlık alanını ve menü çubuğunu gizle */
+    /* Üstteki beyaz bandı şeffaf yap ama ikonu (hamburger menü) gizleme */
 header[data-testid="stHeader"] {
-    display: none !important;
+    background-color: rgba(0,0,0,0) !important;
+}
+
+/* İkonun rengini beyaz yaparak görünür hale getir */
+button[kind="header"] {
+    color: white !important;
+}
+
+/* Sayfayı yukarı çek ama ikonun üzerine binmesini engelle */
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 0rem !important;
 }
 
 /* Sayfanın en üstündeki gereksiz boşluğu kaldır */
