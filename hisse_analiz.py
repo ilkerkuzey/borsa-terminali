@@ -1,14 +1,3 @@
-import os, subprocess, sys
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-try:
-    import yfinance
-    import pandas_ta
-except ImportError:
-    install('yfinance')
-    install('pandas-ta')
-    install('plotly')
 import streamlit as st
 import yfinance as yf
 import pandas as pd
