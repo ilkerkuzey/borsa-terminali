@@ -51,13 +51,17 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# --- 2. VERİ ÇEKME ---
-@st.cache_data
+# --- 4. VERİ ÇEKME (Daha Güçlü Versiyon) ---
+@st.cache_data(ttl=3600) # Veriyi 1 saat hafızada tutar, sürekli çekmez
 def veri_getir(sembol):
-    df = yf.download(sembol, period="1y", interval="1d", auto_adjust=True)
-    if isinstance(df.columns, pd.MultiIndex):
-        df.columns = df.columns.get_level_values(0)
-    return df
+    try:
+        # 'proxy' veya 'session' kullanmadan en sade ve güvenli çekim
+        df = yf.download(sembol, period="1y", interval="1d", auto_adjust=True, timeout=20)
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = df.columns.get_level_values(0)
+        return df
+    except:
+        return pd.DataFrame() # Hata olursa boş tablo dön
 
 st.sidebar.header("🔍 Kontrol Paneli")
 izleme_listesi = st.sidebar.text_input("Hisseler:", "BIMAS.IS, MIATK.IS, THYAO.IS, PGSUS.IS, KFEIN.IS, TEHOL.IS, MGROS.IS")
