@@ -61,6 +61,12 @@ st.markdown("""
         .block-container { padding-top: 2rem !important; }
         .left-panel { margin-bottom: 20px; }
     }
+    /* Mobildeki menü kutusunun içini ve yazısını zorla karartır */
+    div[data-baseweb="select"] > div {
+        background-color: #162a26 !important;
+        color: white !important;
+        -webkit-text-fill-color: white !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
