@@ -10,6 +10,21 @@ st.set_page_config(page_title="AI Teknik Analiz", layout="wide")
 
 st.markdown("""
     <style>
+    /* Üstteki beyaz başlık alanını ve menü çubuğunu gizle */
+header[data-testid="stHeader"] {
+    display: none !important;
+}
+
+/* Sayfanın en üstündeki gereksiz boşluğu kaldır */
+.block-container {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+}
+
+/* Sayfa arka planını sabitle */
+.stApp {
+    background-color: #0b1e1a !important;
+}
     /* Sayfanın tamamını karanlık yap */
 .stApp {
     background-color: #0b1e1a !important;
