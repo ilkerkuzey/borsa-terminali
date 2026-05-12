@@ -10,6 +10,10 @@ st.set_page_config(page_title="AI Teknik Analiz", layout="wide")
 
 st.markdown("""
     <style>
+    /* Başlıkların yanındaki link (zincir) ikonunu gizle */
+.stApp a {
+    display: none !important;
+}
     * 1. Menüye tıklandığında aşağı açılan listenin (popover) arka planını karart */
     div[data-baseweb="popover"], 
     div[data-baseweb="popover"] *, 
